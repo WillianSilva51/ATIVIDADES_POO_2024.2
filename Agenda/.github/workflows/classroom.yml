@@ -1,0 +1,309 @@
+name: Autograding Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deve inicializacao
+        id: inicializacao
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: inicializacao
+          command: gradle test --tests 'TestAgenda.inicializacao'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve adicionar contato com sucesso
+        id: adicionar-contato-com-sucesso
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: adicionar-contato-com-sucesso
+          command: gradle test --tests 'TestAgenda.adicionarContatoComSucesso'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve adicionar contato sem telefone
+        id: adicionar-contato-sem-telefone
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: adicionar-contato-sem-telefone
+          command: gradle test --tests 'TestAgenda.adicionarContatoSemTelefone'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve adicionar contato repetido
+        id: adicionar-contato-repetido
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: adicionar-contato-repetido
+          command: gradle test --tests 'TestAgenda.adicionarContatoRepetido'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve remover contato com sucesso
+        id: remover-contato-com-sucesso
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: remover-contato-com-sucesso
+          command: gradle test --tests 'TestAgenda.removerContatoComSucesso'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve remover fone do contato da agenda
+        id: remover-fone-do-contato-da-agenda
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: remover-fone-do-contato-da-agenda
+          command: gradle test --tests 'TestAgenda.removerFoneDoContatoDaAgenda'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve remover fone do contato da agenda com nome nao cadastrado
+        id: remover-fone-do-contato-da-agenda-com-nome-nao-cadastrado
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: remover-fone-do-contato-da-agenda-com-nome-nao-cadastrado
+          command: gradle test --tests 'TestAgenda.removerFoneDoContatoDaAgendaComNomeNaoCadastrado'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve remover fone do contato da agenda com indice incorreto
+        id: remover-fone-do-contato-da-agenda-com-indice-incorreto
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: remover-fone-do-contato-da-agenda-com-indice-incorreto
+          command: gradle test --tests 'TestAgenda.removerFoneDoContatoDaAgendaComIndiceIncorreto'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve remover contato com nome nao cadastrado
+        id: remover-contato-com-nome-nao-cadastrado
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: remover-contato-com-nome-nao-cadastrado
+          command: gradle test --tests 'TestAgenda.removerContatoComNomeNaoCadastrado'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve recuperar contato
+        id: recuperar-contato
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: recuperar-contato
+          command: gradle test --tests 'TestAgenda.recuperarContato'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve recuperar contato inexistente
+        id: recuperar-contato-inexistente
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: recuperar-contato-inexistente
+          command: gradle test --tests 'TestAgenda.recuperarContatoInexistente'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve encontrar contatos por nomes
+        id: encontrar-contatos-por-nomes
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: encontrar-contatos-por-nomes
+          command: gradle test --tests 'TestAgenda.encontrarContatosPorNomes'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve encontrar contatos por numeros
+        id: encontrar-contatos-por-numeros
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: encontrar-contatos-por-numeros
+          command: gradle test --tests 'TestAgenda.encontrarContatosPorNumeros'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve pesquisa sem nenhum resultado
+        id: pesquisa-sem-nenhum-resultado
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: pesquisa-sem-nenhum-resultado
+          command: gradle test --tests 'TestAgenda.pesquisaSemNenhumResultado'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve verificar ordem alfabetica
+        id: verificar-ordem-alfabetica
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: verificar-ordem-alfabetica
+          command: gradle test --tests 'TestAgenda.verificarOrdemAlfabetica'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve contar quantidade por tipo de telefone
+        id: contar-quantidade-por-tipo-de-telefone
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: contar-quantidade-por-tipo-de-telefone
+          command: gradle test --tests 'TestAgenda.contarQuantidadePorTipoDeTelefone'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve contar quantidade total de telefones
+        id: contar-quantidade-total-de-telefones
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: contar-quantidade-total-de-telefones
+          command: gradle test --tests 'TestAgenda.contarQuantidadeTotalDeTelefones'
+          timeout: 10
+          max-score: 5
+
+      - name: Um contato deve ser inicializador corretamente
+        id: contato-inicializacao
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: contato-inicializacao
+          command: gradle test --tests 'TestContato.inicializacao'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve adicionar fone valido
+        id: adicionar-fone-valido
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: adicionar-fone-valido
+          command: gradle test --tests 'TestContato.adicionarFoneValido'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve adicionar fone invalido
+        id: adicionar-fone-invalido
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: adicionar-fone-invalido
+          command: gradle test --tests 'TestContato.adicionarFoneInvalido'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve remover fone existente
+        id: remover-fone-existente
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: remover-fone-existente
+          command: gradle test --tests 'TestContato.removerFoneExistente'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve remover fone inexistente
+        id: remover-fone-inexistente
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: remover-fone-inexistente
+          command: gradle test --tests 'TestContato.removerFoneInexistente'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve inicializar um fone corretamente
+        id: fone-inicializacao
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: fone-inicializacao
+          command: gradle test --tests 'TestFone.inicializacao'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve validar fone com parenteses
+        id: validar-fone-com-parenteses
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: validar-fone-com-parenteses
+          command: gradle test --tests 'TestFone.validarFoneComParenteses'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve validar fone sem parenteses
+        id: validar-fone-sem-parenteses
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: validar-fone-sem-parenteses
+          command: gradle test --tests 'TestFone.validarFoneSemParenteses'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve validar fone com parenteses deslocado
+        id: validar-fone-com-parenteses-deslocado
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: validar-fone-com-parenteses-deslocado
+          command: gradle test --tests 'TestFone.validarFoneComParentesesDeslocado'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve invalidar fone com letra
+        id: invalidar-fone-com-letra
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: invalidar-fone-com-letra
+          command: gradle test --tests 'TestFone.invalidarFoneComLetra'
+          timeout: 10
+          max-score: 5
+
+      - name: Deve invalidar fone com colchetes
+        id: invalidar-fone-com-colchetes
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: invalidar-fone-com-colchetes
+          command: gradle test --tests 'TestFone.invalidarFoneComColchetes'
+          timeout: 10
+          max-score: 5
+
+      # Relatório final
+      - name: Autograding Reporter
+        uses: classroom-resources/autograding-grading-reporter@v1
+        env:
+          INICIALIZACAO_RESULTS: "${{steps.inicializacao.outputs.result}}"
+          ADICIONAR-CONTATO-COM-SUCESSO_RESULTS: "${{steps.adicionar-contato-com-sucesso.outputs.result}}"
+          ADICIONAR-CONTATO-SEM-TELEFONE_RESULTS: "${{steps.adicionar-contato-sem-telefone.outputs.result}}"
+          ADICIONAR-CONTATO-REPETIDO_RESULTS: "${{steps.adicionar-contato-repetido.outputs.result}}"
+          REMOVER-CONTATO-COM-SUCESSO_RESULTS: "${{steps.remover-contato-com-sucesso.outputs.result}}"
+          REMOVER-FONE-DO-CONTATO-DA-AGENDA_RESULTS: "${{steps.remover-fone-do-contato-da-agenda.outputs.result}}"
+          REMOVER-FONE-DO-CONTATO-DA-AGENDA-COM-NOME-NAO-CADASTRADO_RESULTS: "${{steps.remover-fone-do-contato-da-agenda-com-nome-nao-cadastrado.outputs.result}}"
+          REMOVER-FONE-DO-CONTATO-DA-AGENDA-COM-INDICE-INCORRETO_RESULTS: "${{steps.remover-fone-do-contato-da-agenda-com-indice-incorreto.outputs.result}}"
+          REMOVER-CONTATO-COM-NOME-NAO-CADASTRADO_RESULTS: "${{steps.remover-contato-com-nome-nao-cadastrado.outputs.result}}"
+          RECUPERAR-CONTATO_RESULTS: "${{steps.recuperar-contato.outputs.result}}"
+          RECUPERAR-CONTATO-INEXISTENTE_RESULTS: "${{steps.recuperar-contato-inexistente.outputs.result}}"
+          ENCONTRAR-CONTATOS-POR-NOMES_RESULTS: "${{steps.encontrar-contatos-por-nomes.outputs.result}}"
+          ENCONTRAR-CONTATOS-POR-NUMEROS_RESULTS: "${{steps.encontrar-contatos-por-numeros.outputs.result}}"
+          PESQUISA-SEM-NENHUM-RESULTADO_RESULTS: "${{steps.pesquisa-sem-nenhum-resultado.outputs.result}}"
+          VERIFICAR-ORDEM-ALFABETICA_RESULTS: "${{steps.verificar-ordem-alfabetica.outputs.result}}"
+          CONTAR-QUANTIDADE-POR-TIPO-DE-TELEFONE_RESULTS: "${{steps.contar-quantidade-por-tipo-de-telefone.outputs.result}}"
+          CONTAR-QUANTIDADE-TOTAL-DE-TELEFONES_RESULTS: "${{steps.contar-quantidade-total-de-telefones.outputs.result}}"
+          CONTATO-INICIALIZACAO_RESULTS: "${{steps.inicializacao.outputs.result}}"
+          ADICIONAR-FONE-VALIDO_RESULTS: "${{steps.adicionar-fone-valido.outputs.result}}"
+          ADICIONAR-FONE-INVALIDO_RESULTS: "${{steps.adicionar-fone-invalido.outputs.result}}"
+          REMOVER-FONE-EXISTENTE_RESULTS: "${{steps.remover-fone-existente.outputs.result}}"
+          REMOVER-FONE-INEXISTENTE_RESULTS: "${{steps.remover-fone-inexistente.outputs.result}}"
+          FONE-INICIALIZACAO_RESULTS: "${{steps.inicializacao.outputs.result}}"
+          VALIDAR-FONE-COM-PARENTESES_RESULTS: "${{steps.validar-fone-com-parenteses.outputs.result}}"
+          VALIDAR-FONE-SEM-PARENTESES_RESULTS: "${{steps.validar-fone-sem-parenteses.outputs.result}}"
+          VALIDAR-FONE-COM-PARENTESES-DESLOCADO_RESULTS: "${{steps.validar-fone-com-parenteses-deslocado.outputs.result}}"
+          INVALIDAR-FONE-COM-LETRA_RESULTS: "${{steps.invalidar-fone-com-letra.outputs.result}}"
+          INVALIDAR-FONE-COM-COLCHETES_RESULTS: "${{steps.invalidar-fone-com-colchetes.outputs.result}}"
+        with:
+          runners: inicializacao,adicionar-contato-com-sucesso,adicionar-contato-sem-telefone,adicionar-contato-repetido,remover-contato-com-sucesso,remover-fone-do-contato-da-agenda,remover-fone-do-contato-da-agenda-com-nome-nao-cadastrado,remover-fone-do-contato-da-agenda-com-indice-incorreto,remover-contato-com-nome-nao-cadastrado,recuperar-contato,recuperar-contato-inexistente,encontrar-contatos-por-nomes,encontrar-contatos-por-numeros,pesquisa-sem-nenhum-resultado,verificar-ordem-alfabetica,contar-quantidade-por-tipo-de-telefone,contar-quantidade-total-de-telefones,contato-inicializacao,adicionar-fone-valido,adicionar-fone-invalido,remover-fone-existente,remover-fone-inexistente,fone-inicializacao,validar-fone-com-parenteses,validar-fone-sem-parenteses,validar-fone-com-parenteses-deslocado,invalidar-fone-com-letra,invalidar-fone-com-colchetes
