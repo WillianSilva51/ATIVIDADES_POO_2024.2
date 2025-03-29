@@ -1,38 +1,38 @@
-# Atividades de Estrutura de Dados 2024.2
+# Atividades de Programação Orientada a Objetos 2024.2
 
-![GitHub repo size](https://img.shields.io/github/repo-size/WillianSilva51/ATIVIDADES_ED_2024.2?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/WillianSilva51/ATIVIDADES_ED_2024.2?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/WillianSilva51/ATIVIDADES_ED_2024.2?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/WillianSilva51/ATIVIDADES_POO_2024.2?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/WillianSilva51/ATIVIDADES_POO_2024.2?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/WillianSilva51/ATIVIDADES_POO_2024.2?style=for-the-badge)
 
-> Repositório contendo as atividades desenvolvidas para a disciplina de Estruturas de Dados (ED) na turma de CC 2024.2.
+> Repositório contendo as atividades desenvolvidas para a disciplina de Programação Orientada a Objetos (POO) na turma de CC 2024.2.
 
 ## 💻 Pré-requisitos
 
 Antes de iniciar, verifique se você atende aos seguintes requisitos:
 
-- Possuir uma versão atualizada do compilador C/C++.
-- Ter o Make instalado na sua máquina.
-- Utilizar um ambiente de desenvolvimento no Windows, Linux ou macOS.
+- Possuir a versão mais recente do Java Development Kit (JDK).
+- Utilizar um ambiente de desenvolvimento compatível com Windows, Linux ou macOS.
 
 ## ☕ Executando as Atividades
 
-Após a compilação, execute o binário gerado para testar o exercício desejado. Por exemplo:
+Após compilar seus códigos, execute o programa para testar o exercício desejado. Por exemplo:
 
 ```
-./bin/nome_exercicio
+java NomeExercicio
 ```
 
 ## Índice das Atividades
 
 Abaixo segue um resumo das atividades disponíveis em cada pasta do repositório:
 
-- **Estruturas Básicas**: Exercícios introdutórios sobre arrays e estruturas de dados fundamentais.
-- **Listas Encadeadas**: Implementação e manipulação de listas encadeadas simples e duplamente encadeadas.
-- **Pilhas e Filas**: Exercícios práticos com pilhas e filas para resolução de problemas.
-- **Árvores**: Criação e manipulação de árvores binárias, incluindo árvores de busca.
+- **Conceitos Básicos**: Exercícios introdutórios sobre classes, objetos e métodos.
+- **Herança e Polimorfismo**: Exploração dos conceitos de herança, polimorfismo e reutilização de código.
+- **Interfaces e Abstração**: Implementação de interfaces e classes abstratas para definir contratos.
+- **Tratamento de Exceções**: Exercícios focados no gerenciamento de erros e exceções.
+- **Coleções e Streams**: Manipulação de coleções e utilização de streams para processamento funcional de dados.
 
 Para mais detalhes, explore as pastas específicas dentro do repositório:
-[ATIVIDADES_ED_2024.2](https://github.com/WillianSilva51/ATIVIDADES_ED_2024.2.git)
+[ATIVIDADES_POO_2024.2](https://github.com/WillianSilva51/ATIVIDADES_POO_2024.2.git)
 
 ## 📫 Contribuindo
 
